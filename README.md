@@ -4,4 +4,4 @@ Finds spirals that is similar to what the user "likes". Give a score by clicking
 ## Test
 
 Test the code either by cloning the repo and running it in your browser or go to:
-[https://codepen.io/csandven/pen/PoYWNro](https://codepen.io/csandven/pen/PoYWNro)
+[https://codepen.io/csandven/full/PoYWNro](https://codepen.io/csandven/full/PoYWNro)
