@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <title>Genetic Math</title>
+        <style>
+            * {
+                margin: 0px;
+            }
+            #canvasContainer > div {
+                float: left;
+            }
+
+            canvas {
+                cursor: pointer;
+            }
+
+            #menu {
+                padding: 5px;
+                position: fixed;
+                background: #ddd;
+                max-width: 152px;
+            }
+
+            #nextgenBtn, #showSpiral {
+                background-color: #f44336;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+                margin-bottom: 2px;
+            }
+
+            #showSpiral {
+                background-color: #1DBC60;
+            }
+
+            #canvasContainer {
+                margin-left: 100px;
+            }
+
+            .marg10top {
+                margin-top: 10px;
+            }
+
+            input {
+                width: 100%;
+            }
+
+            .width100 {
+                width: 100%;
+            }
+
+            .width33 {
+                width: 33%;
+            }
+
+            .floatLeft {
+                float: left;
+            }
+
+            [data-tip] {
+                position:relative;
+
+            }
+            [data-tip]:before {
+                content:'';
+                /* hides the tooltip when not hovered */
+                display:none;
+                content:'';
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 5px solid #1a1a1a;	
+                position:absolute;
+                top:30px;
+                left:35px;
+                z-index:8;
+                font-size:0;
+                line-height:0;
+                width:0;
+                height:0;
+            }
+            [data-tip]:after {
+                display:none;
+                content:attr(data-tip);
+                position:absolute;
+                top:35px;
+                left:0px;
+                padding:5px 8px;
+                background:#1a1a1a;
+                color:#fff;
+                z-index:9;
+                font-size: 1.15em;
+                height:18px;
+                line-height:18px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                white-space:nowrap;
+                word-wrap:normal;
+            }
+            [data-tip]:hover:before,
+            [data-tip]:hover:after {
+                display:block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="menu">
+            <div>
+                <button id="nextgenBtn" class="width100">Evaluate</button>
+                <button id="showSpiral" class="width100">Show Spiral</button>
+            </div>
+            <div class="marg10top">
+                Select algorithm to use:
+                <select class="width100" id="algoSelect">
+                    <option value="fermat">Fermat</option>
+                    <option value="archimedean1">Archimedean 1</option>
+                    <option value="atzema">Atzema</option>
+                    <option value="sacks">Sacks</option>
+                    <option value="theodorus">Theodorus</option>
+                </select>
+            </div>
+            <div class="marg10top">
+                <label data-tip="The higher this number is, the higher chance for mutation for the patterns!">
+                    Mutation Chance: <br>
+                    <input type="number" id="mutationChance" min="0" max="1">
+                </label><br><br>
+                <label data-tip="If this number is high, there will be more diversity between the patterns!">
+                    Mutation Rate: <br>
+                    <input type="number" id="mutationRate" min="0" max="400">
+                </label><br><br>
+                <label data-tip="Size of the patterns!">
+                    Scale: <br>
+                    <input type="number" id="scale" min="1" max="10">
+                </label>
+
+                <br><br><br>
+                <div>
+                    Start from:
+                    <div class="width100">
+                        <div class="width33 floatLeft">
+                            <label>
+                                Min: <br>
+                                <input type="number" id="baseMin" min="1" max="500">
+                            </label>
+                        </div>
+                        <div class="width33 floatLeft">
+                            <label>
+                                Max: <br>
+                                <input type="number" id="baseMax" min="1" max="2000">
+                            </label>
+                        </div>
+                        <div class="width33 floatLeft">
+                            <label>
+                                Step: <br>
+                                <input type="number" id="baseStep" min="1" max="50">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="canvasContainer"></div>
+        <script src="./genetic.js"></script>
+    </body>
+</html>
